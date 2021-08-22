@@ -1,12 +1,14 @@
 package com.local.cookrecord.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import lombok.Getter;
@@ -23,9 +25,15 @@ public class Dishes {
   @Column(name="dishName", nullable=false)
   private String dishName;
 
- 
+  @ManyToMany
+  private List<Materials> materials;
 
   @Column(name="calorie", nullable=true)
   private int calorie;
 
+  @ManyToOne
+  private Dish_kinds categoryId;
+
+  @OneToMany(mappedBy="dish")
+  private List<Records> records;
 }

@@ -32,5 +32,10 @@ entity dish_kinds{
   * kindName:String <NotNull>
 }
 
+records }o--|| user_infos
+records }o--|| dishes
+dishes }|--|{ materials
+dishes }o--|| dish_kinds
+
 @enduml
 ```plantuml
