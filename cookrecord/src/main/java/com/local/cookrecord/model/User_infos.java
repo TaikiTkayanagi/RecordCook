@@ -20,12 +20,12 @@ public class User_infos {
   @GeneratedValue(strategy=GenerationType.IDENTITY)
   private int id;
 
-  @Column(name="userName", nullable=false)
+  @Column(name="user_name", nullable=false)
   private String userName;
 
   @Column(name="password")
   private String password;
 
-  @OneToMany(mappedBy="userInfos")
-  private List<User_infos> userInfos;
+  @OneToMany(mappedBy="userInfo")
+  private List<Records> records;
 }

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <table th:fragment="main">
+    <thead>
+      <tr>
+        <td>料理名</td>
+        <td>日付</td>
+        <td>カテゴリー</td>
+        <td>カロリー</td>
+        <td>ボタン</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="t : ${dishes}">
+        <td>[[${t.dishName}]]</td>
+        <td>[[${t.cookDate}]]</td>
+
+        <td th:text="${t.calorie}?:_">----------</td>
+        <td>
+          <a th:href="@{/edit/id(id=${t.id})}">
+            <input type="button" name="editDish" value="edit">
+          </a>
+          <a th:href="@{/delete/id(id=${t.id})}">
+            <input type="button" name="editDish" value="delete">
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</html>
